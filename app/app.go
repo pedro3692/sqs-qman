@@ -17,12 +17,16 @@ func main() {
 	list := flag.Bool("l", false, "List queues")
 	delete := flag.String("d", "", "The name of the queue to delete")
 	endpoint := flag.String("e", "http://127.0.0.1:9324", "SQS endpoint")
+	region := flag.String("r", "elasticmq", "AWS region")
+	accID := flag.String("account_id", "x", "AWS account id")
+	accSecret := flag.String("secret", "x", "AWS account secret")
+	accToken := flag.String("token", "x", "AWS account token")
 
 	flag.Parse()
 
 	sess, err := session.NewSession(&aws.Config{
-		Region:      aws.String("elasticmq"),
-		Credentials: credentials.NewStaticCredentials("x", "x", "x"),
+		Region:      region,
+		Credentials: credentials.NewStaticCredentials(*accID, *accSecret, *accToken),
 	})
 
 	svc := sqs.New(sess, &aws.Config{Endpoint: aws.String(*endpoint)})
