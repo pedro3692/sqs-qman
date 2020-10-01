@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sqs"
-	qman "github.com/pedro3692/sqs-qman/sqs-qman/lib"
+	qman "github.com/pedro3692/sqs-qman/lib"
 )
 
 func main() {
