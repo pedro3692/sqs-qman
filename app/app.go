@@ -60,7 +60,7 @@ func main() {
 	}
 
 	if *delete != "" {
-		result, err := qman.GetQueueURL(svc, queue)
+		result, err := qman.GetQueueURL(svc, delete)
 		if err != nil {
 			fmt.Println("Got an error getting the queue URL:")
 			fmt.Println(err)
